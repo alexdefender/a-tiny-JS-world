@@ -6,8 +6,56 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-// Define your objects here
 
+const dog = {
+    species: 'dog',
+    name: 'Tody',
+    gender: 'male',
+    legs: 4,
+    hands: 0,
+    saying: 'woof-woof!',
+    friends: ['Sharik', 'Anfisa']
+};
+
+const cat = {
+    species: 'cat',
+    name: 'Kira',
+    gender: 'female',
+    legs: 4,
+    hands: 0,
+    saying: 'meow-meow!',
+    friends: ['Murka', 'Vaska']
+};
+
+const woman = {
+    species: 'human',
+    name: 'Elena',
+    gender: 'female',
+    legs: 2,
+    hands: 2,
+    saying: 'I am a woman!',
+    friends: ['Anna', 'Jon']
+};
+
+const man = {
+    species: 'human',
+    name: 'Alex',
+    gender: 'male',
+    legs: 2,
+    hands: 2,
+    saying: 'I am a man!',
+    friends: ['Tim', 'Petr']
+};
+
+const catWoman = {
+    species: 'human',
+    name: 'Eleonora',
+    gender: 'female',
+    legs: 2,
+    hands: 2,
+    saying: cat.saying,
+    friends: ['Super-man', 'Spider-man']
+};
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -28,4 +76,15 @@
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
 
+function printInfo(obj) {
+    print('--- Object ---');
+    for (let index in obj) {
+        print(index + ': ' + obj[index]);
+    }
+}
 
+printInfo(dog);
+printInfo(cat);
+printInfo(man);
+printInfo(woman);
+printInfo(catWoman);
