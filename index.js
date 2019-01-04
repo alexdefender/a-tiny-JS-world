@@ -7,27 +7,29 @@
 
 // ======== OBJECTS DEFINITIONS ========
 
-var entity = function (obj, species, name, gender, legs, hands, saying, friends) {
-    obj.species = species;
-    obj.name = name;
-    obj.gender = gender;
-    obj.legs = legs;
-    obj.hands = hands;
-    obj.saying = saying;
-    obj.friends = friends;
-    obj.infoEntityes = [species, name, gender, legs, hands, saying, friends].join("; ");
 
-    return obj;
+var Entity = function (species, name, gender, legs, hands, saying, friends) {
+    this.species = species;
+    this.name = name;
+    this.gender = gender;
+    this.legs = legs;
+    this.hands = hands;
+    this.saying = saying;
+    this.friends = friends;
 }
 
-const dog = entity({}, 'dog', 'Tody', 'male', 4, 0, 'woof-woof!', ['Sharik', 'Anfisa']);
-const cat = entity({}, 'cat', 'Kira', 'female', 4, 0, 'meow-meow!', ['Murka', 'Vaska']);
-const woman = entity({}, 'human', 'Elena', 'female', 2, 2, 'I am a woman!', ['Anna', 'Jon']);
-const man = entity({}, 'human', 'Alex', 'male', 2, 2, 'I am a man!', ['Tim', 'Petr']);
-const catWoman = entity({}, 'human', 'Eleonora', 'female', 2, 2, cat.saying, ['Super-man', 'Spider-man']);
+Entity.prototype.printInfo = function () {
+    print([this.species, this.name, this.gender, this.legs, this.hands, this.saying, this.friends].join("; "));
+}
+
+const dog = new Entity('dog', 'Tody', 'male', 4, 0, 'woof-woof!', ['Sharik', 'Anfisa']);
+const cat = new Entity('cat', 'Kira', 'female', 4, 0, 'meow-meow!', ['Murka', 'Vaska']);
+const woman = new Entity('human', 'Elena', 'female', 2, 2, 'I am a woman!', ['Anna', 'Jon']);
+const man = new Entity('human', 'Alex', 'male', 2, 2, 'I am a man!', ['Tim', 'Petr']);
+const catWoman = new Entity('human', 'Eleonora', 'female', 2, 2, cat.saying, ['Super-man', 'Spider-man']);
 
 var entityes = [dog, cat, woman, man, catWoman];
 
 entityes.forEach(element => {
-    print(element.infoEntityes);
+    element.printInfo();
 });
